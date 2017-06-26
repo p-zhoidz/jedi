@@ -49,6 +49,12 @@
       <sequenceFlow id="flow22" sourceRef="servicetask3" targetRef="endevent3"></sequenceFlow>
     </subProcess>
     <sequenceFlow id="flow23" sourceRef="publicationInstanceProcess" targetRef="endevent1"></sequenceFlow>
+    <boundaryEvent id="boundaryerror1" name="Error" attachedToRef="publication_artifacts_handler_sub_process">
+      <errorEventDefinition errorRef="test_exception"></errorEventDefinition>
+    </boundaryEvent>
+    <serviceTask id="servicetask4" name="Service Task" activiti:class="by.pzh.jedi.activity.delegate.ExceptionDelegate"></serviceTask>
+    <sequenceFlow id="flow24" sourceRef="boundaryerror1" targetRef="servicetask4"></sequenceFlow>
+    <sequenceFlow id="flow25" sourceRef="servicetask4" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_jedi">
     <bpmndi:BPMNPlane bpmnElement="jedi" id="BPMNPlane_jedi">
@@ -77,7 +83,7 @@
         <omgdc:Bounds height="40.0" width="40.0" x="580.0" y="197.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="publication_artifacts_handler_sub_process" id="BPMNShape_publication_artifacts_handler_sub_process">
-        <omgdc:Bounds height="86.0" width="537.0" x="259.0" y="341.0"></omgdc:Bounds>
+        <omgdc:Bounds height="180.0" width="537.0" x="259.0" y="341.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="publicationArtifactContentService" id="BPMNShape_publicationArtifactContentService">
         <omgdc:Bounds height="55.0" width="105.0" x="335.0" y="361.0"></omgdc:Bounds>
@@ -94,6 +100,9 @@
       <bpmndi:BPMNShape bpmnElement="publicationArtifactSIMSService" id="BPMNShape_publicationArtifactSIMSService">
         <omgdc:Bounds height="55.0" width="105.0" x="585.0" y="361.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boundaryerror1" id="BPMNShape_boundaryerror1">
+        <omgdc:Bounds height="30.0" width="30.0" x="780.0" y="436.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="publicationInstanceProcess" id="BPMNShape_publicationInstanceProcess">
         <omgdc:Bounds height="139.0" width="281.0" x="710.0" y="148.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -105,6 +114,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
         <omgdc:Bounds height="35.0" width="35.0" x="940.0" y="201.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="servicetask4" id="BPMNShape_servicetask4">
+        <omgdc:Bounds height="55.0" width="105.0" x="795.0" y="480.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="65.0" y="217.0"></omgdi:waypoint>
@@ -191,7 +203,7 @@
         <omgdi:waypoint x="735.0" y="388.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
-        <omgdi:waypoint x="796.0" y="384.0"></omgdi:waypoint>
+        <omgdi:waypoint x="796.0" y="431.0"></omgdi:waypoint>
         <omgdi:waypoint x="853.0" y="384.0"></omgdi:waypoint>
         <omgdi:waypoint x="850.0" y="287.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
@@ -207,6 +219,14 @@
         <omgdi:waypoint x="850.0" y="148.0"></omgdi:waypoint>
         <omgdi:waypoint x="850.0" y="65.0"></omgdi:waypoint>
         <omgdi:waypoint x="545.0" y="65.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
+        <omgdi:waypoint x="795.0" y="466.0"></omgdi:waypoint>
+        <omgdi:waypoint x="847.0" y="480.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
+        <omgdi:waypoint x="847.0" y="480.0"></omgdi:waypoint>
+        <omgdi:waypoint x="527.0" y="83.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

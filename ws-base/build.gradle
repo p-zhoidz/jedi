@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+bootRepackage.enabled = false
+
+group 'by.pzh.jedi'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+       compile("org.springframework.boot:spring-boot-starter-web")
+       compile("org.springframework.boot:spring-boot-starter-actuator")
+       compile("io.springfox:springfox-swagger2:2.7.0")
+       compile("io.springfox:springfox-swagger-ui:2.7.0")
+       testCompile("junit:junit")
+}

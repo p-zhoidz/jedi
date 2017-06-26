@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+group 'by.pzh.jedi'
+version '0.0.1-SNAPSHOT'
+

@@ -1,0 +1,10 @@
+rootProject.name = 'jedi'
+include 'pips'
+include 'bpm'
+include 'domain'
+include 'cs'
+include 'ws-base'
+include 'mmrs'
+include 'sims'
+include 'sims'
+
